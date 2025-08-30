@@ -4,11 +4,7 @@
 \newcommand{\contribution}[1]{\iftoggle{contrib}{\emph{Contribution: #1}}}
 
 \usepackage[hidelinks]{hyperref}
-\usepackage{url}
-\usepackage{breakurl}
 \usepackage{geometry}
-
-
 \usepackage{etoolbox}
 
 
@@ -27,16 +23,16 @@
 % (as in \def\footerlink{}) to remove the link in the footer:
 \def\footerlink{}
 
-% The following metadata will show up in the PDF properties
-%\hypersetup{
-%  colorlinks = true,
-%  urlcolor = black,
-%  pdfauthor = {\name},
-%  pdfkeywords = {evolution, invertebrate zoology, computational biology},
-%  pdftitle = {\name: Curriculum Vitae},
-%  pdfsubject = {Curriculum Vitae},
-%  pdfpagemode = UseNone
-%}
+% PDF metadata
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {evolution, invertebrate zoology, computational biology},
+  pdftitle = {\name: Curriculum Vitae},
+  pdfsubject = {Curriculum Vitae},
+  pdfpagemode = UseNone
+}
 
 \geometry{
   body={6.5in, 8.5in},
@@ -147,11 +143,6 @@
 \input{sections/service}
 \input{sections/honors}
 \input{sections/teaching}
-
-
-
-
-
 
 \bigskip
 
