@@ -6,15 +6,14 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
 \usepackage{etoolbox}
+\usepackage{enumitem}
 
 
 
 
-% Comment the following lines to use the default Computer Modern font
-% instead of the Palatino font provided by the mathpazo package.
-% Remove the 'osf' bit if you don't like the old style figures.
+% Use modern Times-based fonts for better readability
 \usepackage[T1]{fontenc}
-\usepackage[sc,osf]{mathpazo}
+\usepackage{newtxtext,newtxmath}
 
 % Set your name here
 \def\name{Dr. Casey William Dunn}
@@ -45,10 +44,14 @@
 \markright{\name}
 \thispagestyle{empty}
 
-% Custom section fonts
+% Custom section fonts with rules
 \usepackage{sectsty}
 \sectionfont{\rmfamily\mdseries\Large}
 \subsectionfont{\rmfamily\mdseries\itshape\large}
+
+% Add horizontal rules under section headings
+\let\oldsection\section
+\renewcommand{\section}[1]{\oldsection{#1}\vspace{-0.5em}\rule{\textwidth}{0.4pt}\vspace{0.5em}}
 
 % Other possible font commands include:
 % \ttfamily for teletype,
