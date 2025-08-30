@@ -1,17 +1,10 @@
 \documentclass[letterpaper]{article}
 
-
-\newcommand{\contribution}[1]{\iftoggle{contrib}{\emph{Contribution: #1}}}
-
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
 \usepackage{etoolbox}
 \usepackage{enumitem}
 
-
-
-
-% Use modern Times-based fonts for better readability
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext,newtxmath}
 
@@ -53,13 +46,6 @@
 \let\oldsection\section
 \renewcommand{\section}[1]{\oldsection{#1}\vspace{-0.5em}\rule{\textwidth}{0.4pt}\vspace{0.5em}}
 
-% Other possible font commands include:
-% \ttfamily for teletype,
-% \sffamily for sans serif,
-% \bfseries for bold,
-% \scshape for small caps,
-% \normalsize, \large, \Large, \LARGE sizes.
-
 % Don't indent paragraphs.
 \setlength\parindent{0em}
 
@@ -87,56 +73,6 @@
 
 
 \begin{document}
-
-% Toggles for conditional inclusion:
-% http://tex.stackexchange.com/questions/5894/latex-conditional-expression/5896#5896
-
-% Section toggles
-
-% Individual contributions to papers
-\newtoggle{contrib}
-\togglefalse{contrib}
-% \toggletrue{contrib}
-
-\newtoggle{inreview}
-\togglefalse{inreview}
-% \toggletrue{inreview}
-
-\newtoggle{inprep}
-\togglefalse{inprep}
-% \toggletrue{inprep}
-
-\newtoggle{grants}
-\togglefalse{grants}
-% \toggletrue{grants}
-
-\newtoggle{declinedgrants}
-\togglefalse{declinedgrants}
-% \toggletrue{declinedgrants}
-
-\newtoggle{service}
-\togglefalse{service}
-% \toggletrue{service}
-
-\newtoggle{long}
-\toggletrue{long}
-% \toggletrue{service}
-
-% Master toggles, default is minimal public (web) view
-
-% Outside review
-% \toggletrue{grants} \toggletrue{service}
-
-% Yale internal
-%\toggletrue{grants} \toggletrue{service} \toggletrue{inreview}  %\toggletrue{inprep}
-
-% Promotion/ TPAC
-% \toggletrue{grants} \toggletrue{service} \toggletrue{contrib} \toggletrue{inreview} \toggletrue{inprep}
-
-% Short
-% \togglefalse{long}  \toggletrue{grants}
-
-
 
 \noindent {\huge \name\ --- Curriculum Vitae}
 
