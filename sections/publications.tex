@@ -1,248 +1,53 @@
+
+% --- Filters for Sections ---
+
+% Filter for Books (Section A)
+\defbibcheck{books}{
+  \ifentrytype{book}{}{\skipentry}
+}
+
+% Filter for Chapters (Section B)
+\defbibcheck{chapters}{
+  \ifentrytype{incollection}{}{\skipentry}
+}
+
+% Filter for Refereed Articles (Section C)
+\defbibcheck{refereed}{
+  \ifentrytype{article}{
+    \iffieldundef{note}
+      {} % Keep if no note
+      {\iffieldequalstr{note}{Not peer reviewed}{\skipentry}{}} % Skip if note is "Not peer reviewed"
+  }{\skipentry} % Skip if not article
+}
+
+% Filter for Non-Refereed (Section D)
+\defbibcheck{nonrefereed}{
+  \iffieldequalstr{note}{Not peer reviewed}{}{\skipentry}
+}
+
+
+
 \section{Publications}
 
+% Use \nocite{*} to include ALL entries from the bib file
+\nocite{*}
 
 \subsection*{a. Books}
-
-\begin{itemize}
-
-\item SHD Haddock and CW Dunn. (2010) Practical Computing for Biologists. 538 pages. Sinauer Associates. Sunderland, MA. \url{http://practicalcomputing.org}. 
-
-\end{itemize}
+\printbibliography[heading=none, check=books]
 
 \medskip
 \subsection*{b. Chapters in books}
-
-\begin{itemize}
-
-\item Giribet, G, CW Dunn, GD Edgecombe, A Hejnol, MQ Martindale, and GW Rouse (2009) Assembling the spiralian tree of life (p 52-64) In: Animal Evolution. MJ Telford and DTJ Littlewood (eds). Oxford University Press. 
-
-\item Mills, CE, AC Marques, AE Migotto, DR Calder, C Hand, JT Rees, SHD Haddock, CW Dunn, and PR Pugh. (2007) Hydrozoa: Polyps, Hydromedusae, and Siphonophora. In: The Light \& Smith manual: intertidal invertebrates from central California to Oregon, 4th edition. JT Carlton (ed). University of California Press. 
-
-\end{itemize}
+\printbibliography[heading=none, check=chapters]
 
 \medskip
 \subsection*{c. Refereed journal articles}
+\printbibliography[heading=none, check=refereed]
 
-\begin{itemize}
-
-\item Oguchi K, Maeno A, Yoshida K, Kohtsuka H, Dunn CW (2025) Zooid arrangement and colony growth in Porpita porpita. Frontiers in Zoology 22:11. \url{https://doi.org/10.1186/s12983-025-00565-3}
-
-\item Church SH, Abedon RB, Ahuja N, Anthony CJ, Destanović D, Ramirez DA, Rojas LM, Albinsson ME, Álvarez Trasobares I, Bergemann RE, Bogdanovic O, Burdick DR, Cunha TJ, Damian-Serrano A, D’Elía G, Dion KB, Doyle TK, Gonçalves JM, Gonzalez Rajal A, Haddock SHD, Helm RR, Le Gouvello D, Lewis ZR, Magalhães BIMM, Mańko MK, Mayorga-Adame CG, de Mendoza A, Moura CJ, Munro C, Nel R, Oguchi K, Perelman JN, Prieto L, Pitt KA, Roughan M, Schaeffer A, Schmidt AL, Sellanes J, Wilson NG, Yamamoto G, Lazo-Wasem EA, Simon C, Decker MB, Coughlan JM, Dunn CW (2025) Population genomics of a sailing siphonophore reveals genetic structure in the open ocean. Current Biology. \url{https://doi.org/10.1016/j.cub.2025.05.066}
-
-\item Kantor R, Steingrimsson J, Fulton J, Novitsky V, Howison M, Gillani F, Bhattarai L, MacAskill M, Hague J, Guang A, Khanna A, Dunn C, Hogan J, Bertrand T, Bandy U (2024) Prospective evaluation of routine statewide integration of molecular epidemiology and contact tracing to disrupt HIV transmission. Open Forum Infectious Diseases. \url{https://doi.org/10.1093/ofid/ofae599}
-
-\item Oguchi K, Yamamoto G, Kohtsuka H, Dunn CW (2024) Physalia gonodendra are not yet sexually mature when released. Scientific Reports 14:23011. \url{https://doi.org/10.1038/s41598-024-73611-5}
-
-\item Fulton J, Novitsky V, Gillani F, Guang A, Steingrimsson J, Khanna A, Hague J, Dunn C, Hogan J, Howe K, MacAskill M, Bhattarai L, Bertrand T, Bandy U, Kantor R (2024) Integrating HIV Cluster Analysis in Everyday Public Health Practice: Lessons Learned From a Public Health--Academic Partnership. JAIDS Journal of Acquired Immune Deficiency Syndromes 97(1):48-54. \url{https://doi.org/10.1097/QAI.0000000000003469}
-
-\item Church SH, Mah JL, Dunn CW (2024) Integrating phylogenies into single-cell RNA sequencing analysis allows comparisons across species, genes, and cells. PLOS Biology 22(5): e3002633. \url{https://doi.org/10.1371/journal.pbio.3002633}
-
-\item N Ahuja, X Cao, DT Schultz, N Picciani, A Lord, S Shao, K Jia, DR Burdick, SH D Haddock, Y Li, CW Dunn (2024) Giants among Cnidaria: Large Nuclear Genomes and Rearranged Mitochondrial Genomes in Siphonophores. Genome Biology and Evolution, 16(3). \url{https://doi.org/10.1093/gbe/evae048}
-
-\item ED Hetherington, HG Close, SH Haddock, AD Damian-Serrano, CW Dunn, NJ Wallsgrove, SC Doherty, CA Choy (2024) Vertical trophic structure and niche partitioning of gelatinous predators in a pelagic food web: Insights from stable isotopes of siphonophores. Limnology and Oceanography. \url{https://doi.org/10.1002/lno.12536}
-
-\item JL Mah, CW Dunn (2024) Cell type evolution reconstruction across species through cell phylogenies of single-cell RNA sequencing data. Nature Ecology and Evolution. \url{https://doi.org/10.1038/s41559-023-02281-9}
-
-\item A Khanna, V Novitsky, A Guang, M Howison, FS Gillani, J Steingrimsson, C Dunn, J Fulton, T Bertrand, K Howe, L Bhattarai, G Ronquillo, M MacAskill, U Bandy, R Kantor (2023) Integrating HIV Partner Services and Molecular Epidemiology Data to Enhance HIV Transmission Disruption in Rhode Island: Findings from a Public Health-Academic Partnership. Open Forum Infectious Diseases, 10(2).  \url{https://doi.org/10.1093/ofid/ofad500.170}
-
-\item SH Church, JL May, G Wagner, CW Dunn (2023) Normalizing need not be the norm: count‑based math for analyzing single‑cell data. Theory in Biosciences. \url{https://doi.org/10.1007/s12064-023-00408-x}
-
-\item M Howison, FS Gillani, V Novitsky, JA Steingrimsson, J Fulton, T Bertrand, K Howe, A Civitarese, L Bhattarai, M MacAskill, G Ronquillo, J Hague, CW Dunn, U Bandy, JW Hogan, R Kantor (2023) An Automated Bioinformatics Pipeline Informing Near-Real-Time Public Health Responses to New HIV Diagnoses in a Statewide HIV Epidemic. Viruses, 15(3), 737. \url{https://www.mdpi.com/1999-4915/15/3/737}
-
-\item CW Dunn (2023) Neurons that connect without synapses. Science, Vol 380, Issue 6642, pp. 241-242. \url{https://doi.org/10.1126/science.adh0542}
-
-\item SH Church, C Munro, CW Dunn, CG Extavour (2023) The evolution of ovary-biased gene expression in Hawaiian Drosophila. PLoS Genet 19(1): e1010607. \url{https://doi.org/10.1371/journal.pgen.1010607}
-
-\item V Novitsky, J Steingrimsson, M Howison, CW Dunn, FS Gillani, J Fulton, T Bertrand, K Howe, L Bhattarai, G Ronquillo, M MacAskill, U Bandy, J Hogan, R Kantor (2023) Not all clusters are equal: dynamics of molecular HIV-1 clusters in a statewide Rhode Island epidemic. AIDS. \url{https://doi.org/10.1097/QAD.0000000000003426}
-
-\item A Monroe-Wise, JA Steingrimsson, J Fulton, M Howison, V Novitsky, FS Gillani, T Bertrand, A Civitarese, K Howe, G Ronquillo, B Lafazia, Z Parillo, T Marak, PA Chan, L Bhattarai, CW Dunn, U Bandy, NA Scott, JW Hogan, R Kantor (2022) Beyond HIV outbreaks: protocol, rationale and implementation of a prospective study quantifying the benefit of incorporating viral sequence clustering analysis into routine public health interventions. BMJ Open, 12(4). \url{https://bmjopen.bmj.com/content/12/4/e060184}
-
-\item A Guang, M Howison, L Ledingham, M D’Antuono, PA Chan, C Lawrence, CW Dunn, R Kantor (2022) Incorporating Within-Host Diversity in Phylogenetic Analyses for Detecting Clusters of New HIV Diagnoses. Frontiers in Microbiology. \url{https://www.frontiersin.org/articles/10.3389/fmicb.2021.803190/full}
-
-\item JA Steingrimsson, J Fulton, MH Howison, V Novitsky, FS Gillani, T Bertrand, A Civitarese, K Howe, G Ronquillo, B Lafazia, Z Parillo, T Marak, PA Chan, L Bhattarai, CW Dunn, U Bandy, NA Scott, JW Hogan, R Kantor (2022) Beyond HIV outbreaks:  protocol, rationale, and implementation of a prospective study quantifying the benefit of incorporating viral sequence clustering analysis into routine public health interventions. BMJ Open. \url{http://doi.org/10.1136/bmjopen-2021-060184}
-
-\item Damian-Serrano A, Hetherington ED, Choy A, Haddock SHD, Lepides A, Dunn CW (2022) Characterizing the secret diets of siphonophores (Cnidaria: Hydrozoa) using DNA metabarcoding. PLoS One. \url{https://doi.org/10.1371/journal.pone.0267761}. GitHub repository \url{https://github.com/dunnlab/siphweb_metabarcoding}.
-
-\item Hetherington ED, Damian-Serrano A, Haddock SHD, Dunn CW, Choy A (2022) Integrating siphonophores into marine food-web ecology. Limnology and Oceanography Letters. \url{https://doi.org/10.1002/lol2.10235}
-
-\item Munro C, Zapata F, Howison M, Siebert S, Dunn CW (2022) Evolution of gene expression across species and specialized zooids in Siphonophora. MBE. \url{https://doi.org/10.1093/molbev/msac027}
-
-\item Li, Y, Shen XX, Evans B, Dunn CW, Rokas A. (2021) Rooting the animal tree of life. MBE. \url{https://doi.org/10.1093/molbev/msab170}
-
-\item Novitsky, V, Steingrimsson J, Howison M, Dunn CW, Gillani FS, Manne A, Li Y, Spence M, Parillo Z, Fulton J, Marak T, Chan P, Bertrand T, Bandy U, Alexander-Scott N, Hogan J, Kantor R. (2021) Longitudinal typing of molecular HIV clusters in a statewide epidemic. AIDS. \url{https://doi.org/10.1097/QAD.0000000000002953}
-
-\item Damian-Serrano, A, SHD Haddock, CW Dunn (2021) The evolutionary history of siphonophore tentilla: Novelties, convergence, and integration. Integrative Organismal Biology. \url{https://doi.org/10.1093/iob/obab019}
-
-\item Damian-Serrano, A, SHD Haddock, CW Dunn (2021) The evolution of siphonophore tentilla for specialized prey capture in the open ocean. PNAS 118 (8) e2005063118. \url{https://doi.org/10.1073/pnas.2005063118} (Cover article)
-
-\item Li Y, Steenwyk JL, Chang Y, Wang Y, James TY, Stajich JE, Spatafora JW, Groenewald M, Dunn CW, Hittinger CT, Shen XX, Rokas A (2021) A genome-scale phylogeny of the kingdom Fungi. Current Biology 31:8 1653-1665. \url{https://doi.org/10.1016/j.cub.2021.01.074}
-
-\item Guang, A, M Howison, F Zapata, C Lawrence, CW Dunn (2021) Revising transcriptome assemblies with phylogenetic information. PLoS ONE 16(1): e0244202.  \url{https://doi.org/10.1371/journal.pone.0244202}. Git code repository: \url{https://github.com/caseywdunn/ms_treeinform}
-
-\item Kantor, R, JP Fulton, J Steingrimsson, V Novitsky, M Howison, F Gillani, Y Li, A Manne, Z Parillo , M Spence, T Marak, P Chan, CW Dunn, T Bertrand, U Bandy, N Alexander-Scott, JW Hogan (2020) Challenges in evaluating the use of viral sequence data to identify HIV transmission networks for public health. Statistical Communications in Infectious Diseases 12:s1. \url{https://doi.org/10.1515/scid-2019-0019}
-
-\item Novitsky, V, JA Steingrimsson, M Howison, FS Gillani, Y Li, A Manne, J Fulton, M Spence, Z Parillo, T Marak, PA Chan, T Bertrand, U Bandy, N Alexander-Scott, CW Dunn, J Hogan, R Kantor. (2020) Empirical comparison of analytical approaches for identifying molecular HIV-1 clusters. Scientific Reports 10, Article number: 18547. \url{https://doi.org/10.1038/s41598-020-75560-1}
-
-\item AG Collins, M Daly, and CW Dunn. 2020. Cnidaria. pp. 457--460 in Phylonyms: A Companion to the PhyloCode (K. de Queiroz, P. D. Cantino, and J. A. Gauthier, eds.). CRC Press, Boca Raton, FL. \url{https://doi.org/10.1201/9780429446276}
-
-\item AG Collins and CW Dunn. 2020. Medusozoa. pp. 473-475 in Phylonyms: A Companion to the PhyloCode (K. de Queiroz, P. D. Cantino, and J. A. Gauthier, eds.). CRC Press, Boca Raton, FL. \url{https://doi.org/10.1201/9780429446276}
-
-\item Dunn, CW and AG Collins. 2020. Hydrozoa. pp. 473-475 in Phylonyms: A Companion to the PhyloCode (K. de Queiroz, P. D. Cantino, and J. A. Gauthier, eds.). CRC Press, Boca Raton, FL. \url{https://doi.org/10.1201/9780429446276}
-
-\item Dunn, CW and AG Collins. 2020. Trachylina. pp. 485-487 in Phylonyms: A Companion to the PhyloCode (K. de Queiroz, P. D. Cantino, and J. A. Gauthier, eds.). CRC Press, Boca Raton, FL. \url{https://doi.org/10.1201/9780429446276}
-
-\item Dunn, CW and AG Collins. 2020. Hydroidolina. pp. 489-490 in Phylonyms: A Companion to the PhyloCode (K. de Queiroz, P. D. Cantino, and J. A. Gauthier, eds.). CRC Press, Boca Raton, FL. \url{https://doi.org/10.1201/9780429446276}
-
-\item Dunn, CW 2020. Siphonophora. pp. 491-492 in Phylonyms: A Companion to the PhyloCode (K. de Queiroz, P. D. Cantino, and J. A. Gauthier, eds.). CRC Press, Boca Raton, FL. \url{https://doi.org/10.1201/9780429446276}
-
-\item Smith, SD, MW Pennell, CW Dunn, SV Edwards (2020) Phylogenetics is the New Genetics (for Most of Biodiversity). Trends in Ecology and Evolution. \url{https://doi.org/10.1016/j.tree.2020.01.005}.
-
-\item Catriona Munro, Zer Vue, Richard R. Behringer, Casey W. Dunn (2019) Morphology and development of the Portuguese man of war, Physalia physalis. Scientific Reports 9:15522. \url{http://doi.org/10.1038/s41598-019-51842-1}.
-
-\item Li-Gen Wang, Tommy Tsan-Yuk Lam, Shuangbin Xu, Zehan Dai, Lang Zhou, Tingze Feng, Pingfan Guo, Casey W Dunn, Bradley R Jones, Tyler Bradley, Huachen Zhu, Yi Guan, Yong Jiang, Guangchuang Yu. (2019) treeio: an R package for phylogenetic tree input and output with richly annotated and associated data. Molecular Biology and Evolution. \url{https://doi.org/10.1093/molbev/msz240}. Git code repository: \url{https://guangchuangyu.github.io/software/treeio/}.
-
-\item Munro, C, S Siebert, F Zapata, M Howison, A Damian-Serrano, SH Church, FE Goetz, PR Pugh, SHD Haddock, CW Dunn (2018) Improved phylogenetic resolution within Siphonophora (Cnidaria) with implications for trait evolution. Molecular Phylogenetics and Evolution. \url{http://doi.org/10.1016/j.ympev.2018.06.030}. bioRxiv preprint: \url{https://doi.org/10.1101/251116}. Git code repository: \url{https://github.com/caseywdunn/siphonophore_phylogeny_2017}.
-
-\item Pugh, PR, CW Dunn, SHD Haddock (2018) Description of Tottonophyes enigmatica gen. nov., sp. nov. (Hydrozoa, Siphonophora, Calycophorae), with a reappraisal of the function and homology of nectophoral canals. Zootaxa 4415(3):452-472. \url{https://doi.org/10.11646/zootaxa.4415.3.3}.
-
-\item Haddock, SHD, Christianson LM, Francis WR, Martini S, Dunn CW, Pugh PR, Mills CE, Osborn KJ, Seibel BA, Choy CA, Schnitzler CE, Matsumoto GI, Messi M, Schultz DT, Winnikoff JR, Powers ML, Gasca R, Browne WE, Johnsen S, Schlining KL, von Thun S, Erwin BE, Ryan JF, Thuesen EV (2018) Insights into the Biodiversity, Behavior, and Bioluminescence of Deep-Sea Organisms Using Molecular and Maritime Technology. Oceanography 30:38-47. \url{https://doi.org/10.5670/oceanog.2017.422}
-
-\item Dunn, CW, F Zapata, C Munro, S Siebert, A Hejnol (2018) Pairwise comparisons across species are problematic when analyzing functional genomic data. PNAS. \url{http://doi.org/10.1073/pnas.1707515115}. bioRxiv preprint: \url{https://doi.org/10.1101/107177}. Git code repository: \url{https://github.com/caseywdunn/comparative_expression_2017}.
-
-\item Helm, RR, CW Dunn (2017) Indoles induce metamorphosis in a broad diversity of jellyfish, but not in a crown jelly (Coronatae). PLoS One. \url{https://doi.org/10.1371/journal.pone.0188601}.
-
-\item Dunn, CW, C Munro (2016) Comparative genomics and the diversity of life. Zoologica Scripta 45:5-13. \url{http://doi.org/10.1111/zsc.12211}.
-
-\item Guang, A, F Zapata, M Howison, CE Lawrence, CW Dunn (2016) An Integrated Perspective on Phylogenetic Workflows. Trends in Ecology and Evolution 31:116-126. \url{http://doi.org/10.1016/j.tree.2015.12.007}. 
-
-\item Dunn, CW (2015) Acorn worms in a nutshell. Nature 527:448-449. \url{http://doi.org/10.1038/nature16315}.
-
-\item Zapata, F, FE Goetz, SA Smith, M Howison, S Siebert, S Church, SM Sanders, CL Ames, CS McFadden, SC France, M Daly, AG Collins, SHD Haddock, CW Dunn, P Cartwright (2015) Phylogenomic analyses support traditional relationships within Cnidaria. PLoS One 10(10): e0139068. \url{http://doi.org/10.1371/journal.pone.0139068}. BioRxiv preprint: \url{http://doi.org/10.1101/017632}. Git code repository: \url{https://bitbucket.org/caseywdunn/cnidaria2014}.
-
-\item Dunn, CW, JT Ryan (2015) The evolution of animal genomes. Current Opinion in Genetics and Development 35:25-32. \url{http://doi.org/10.1016/j.gde.2015.08.006}
-
-\item Haddock, SH, CW Dunn (2015) Fluorescent proteins function as a prey attractant: experimental evidence from the hydromedusa Olindias formosus and other marine organisms. Biology Open 4:1094-1104. \url{http://doi.org/10.1242/bio.012138}.
-
-\item Church, SH, JF Ryan, CW Dunn (2015) Automation and Evaluation of the SOWH Test of Phylogenetic Topologies with SOWHAT. Systematic Biology 64(6):1048-1058. \url{http://doi.org/10.1093/sysbio/syv055}. BioRxiv preprint: \url{http://doi.org/10.1101/005264}. Git code repository: \url{https://github.com/josephryan/sowhat}. 
-
-\item Laumer, CE, N Bekkouche, A Kerbl, F Goetz, RC Neves, MV Sorensen, RM Kristensen, A Hejnol, CW Dunn, G Giribet, K Worsaae (2015) Spiralian Phylogeny Informs the Evolution of Microscopic Lineages. Current Biology 25(15):2000-2006.  \url{http://doi.org/10.1016/j.cub.2015.06.068}.
-
-\item Church, SH, S Siebert, P Bhattacharyya, CW Dunn (2015) The Histology of \emph{Nanomia bijuga} (Hydrozoa: Siphonophora). J. Exp. Zool. (Mol. Dev. Evol.) 324(5):435-449.  \url{http://doi.org/10.1002/jez.b.22629}. BioRxiv preprint: \url{http://doi.org/10.1101/010868}.
-
-\item Siebert, S, FE Goetz, SH Church, P Bhattacharyya, F Zapata, SHD Haddock, and CW Dunn (2015) Stem Cells in a Colonial Animal with Localized Growth Zones. EvoDevo 6:22. \url{http://doi.org/10.1186/s13227-015-0018-2}. BioRxiv preprint: \url{http://doi.org/10.1101/001685}. Git code repository: \url{https://bitbucket.org/caseywdunn/siebert_etal}. 
-
-\item Salinas-Saavedra, M, TQ Stephenson, CW Dunn, MQ Martindale (2015) Par system components are asymmetrically localized in ectodermal epithelia, but not during early development in the sea anemone \emph{Nematostella vectensis}. EvoDevo 6:20. \url{http://doi.org/10.1186/s13227-015-0014-6}.
-
-\item Helm, RR, S Tiozzo, MKS Lilley, F Lombard, CW Dunn (2015) Comparative muscle development of scyphozoan jellyfish with simple and complex life cycles. EvoDevo 6:11. \url{http://doi.org/10.1186/s13227-015-0005-7}.
-
-\item Dunn, CW, SP Leys, SHD Haddock (2015) The hidden biology of sponges and ctenophores. Trends in Ecology and Evolution 30:282-291. \url{http://doi.org/10.1016/j.tree.2015.03.003}. 
-
-\item Reich, A, CW Dunn, K Akasaka, G Wessel (2015) Phylogenomic Analyses of Echinodermata Support the Sister Groups of Asterozoa and Echinozoa. PLoS One 10:e0119627. \url{http://doi.org/10.1371/journal.pone.0119627}.
-
-\item Gonzalez, VL, SCS Andrade, R Bieler, TM Collins, CW Dunn, PM Mikkelsen, JD Taylor, G Giribet (2015) A phylogenetic backbone for Bivalvia: an RNA-seq approach. Proceedings of the Royal Society B: Biological Sciences 282:20142332. \url{http://doi.org/10.1098/rspb.2014.2332}.
-
-\item Dunn, CW, G Giribet, GD Edgecombe, A Hejnol (2014) Animal Phylogeny and its Evolutionary Implications. Annual Review of Ecology, Evolution, and Systematics 45:371-395. \url{http://doi.org/10.1146/annurev-ecolsys-120213-091627}. 
-
-\item Zapata, F, NG Wilson, M Howison, SCS Andrade, KM J\"orger, Michael Schr\"odl, Freya E Goetz, Gonzalo Giribet, Casey W Dunn (2014) Phylogenomic analyses of deep gastropod relationships reject Orthogastropoda. Proceedings of the Royal Society B: Biological Sciences 281:1471-2954. \url{http://doi.org/10.1098/rspb.2014.1739}. BioRxiv preprint: \url{http://doi.org/10.1101/007039}. Git code repository: \url{https://bitbucket.org/caseywdunn/gastropoda}. 
-
-\item Dunn, CW (2014) Reconsidering the phylogenetic utility of miRNA in animals. PNAS 111:12576-12577. \url{http://doi.org/10.1073/pnas.1413545111}.
-
-\item Howison, M, F Zapata, EJ Edwards, and CW Dunn (2014) Bayesian genome assembly and assessment by Markov Chain Monte Carlo sampling.  PLoS One 9:e99497. \url{http://doi.org/10.1371/journal.pone.0099497}. arXiv preprint: \url{http://arxiv.org/abs/1308.1388}. Git code repository: \url{https://bitbucket.org/mhowison/gabi}. Example analysis report: \url{https://web3.ccv.brown.edu/mhowison/gabi-report/}. 
-
-\item Lopez, J, H Bracken-Grissom, A Collins, T Collins, K Crandall, D Distel, C Dunn, et al. (2014) Global Invertebrate Genomics Alliance (GIGA): Developing Community Resources to Study Diverse Invertebrate Genomes. Journal of Heredity 105:1-18. \url{http://doi.org/10.1093/jhered/est084} 
-
-\item Ryan, JF, K Pang, CE Schnitzler, A Nguyen, RT Moreland, DK Simmons, BJ Koch, WR Francis, P Havlak, NISC Comparative Sequencing Program, SA Smith, NH Putnam, SHD Haddock, CW Dunn, TG Wolfsberg, JC Mullikin, MQ Martindale, AD Baxevanis (2013) The genome of the ctenophore \emph{Mnemiopsis leidyi} and its implications for cell type evolution. Science 432:1242592. \url{http://doi.org/10.1126/science.1242592}. 
-
-\item CW Dunn, M Howison, and F Zapata (2013) Agalma: an automated phylogenomics workflow. BMC Bioinformatics 14:330. \url{http://doi.org/10.1186/1471-2105-14-330}. arXiv preprint: \url{http://arxiv.org/abs/1307.6432}. Git code repository: \url{https://bitbucket.org/caseywdunn/agalma} (software), \url{https://bitbucket.org/caseywdunn/dunnhowisonzapata2013} (analyses).
-
-\item Howison, M, F Zapata, CW Dunn (2013) Toward a statistically explicit understanding of \emph{de novo} sequence assembly. Bioinformatics 29:2959-2963. \url{http://doi.org/10.1093/bioinformatics/btt525}. 
-
-\item Siebert, S, PR Pugh, SHD Haddock, CW Dunn (2013) Re-evaluation of characters in Apolemiidae (Siphonophora), with description of two new species from Monterey Bay, California. Zootaxa 3702: 201-232.  \url{http://www.mapress.com/zootaxa/2013/f/zt03702p232.pdf}. Accompanying video of new species available at \url{https://vimeo.com/59928656}. 
-
-\item Dunn, CW, X Luo, Z Wu (2013) Phylogenetic analysis of gene expression. Integrative and Comparative Biology 53:847-856. \url{http://doi.org/10.1093/icb/ict068}. arXiv preprint: \url{http://arxiv.org/abs/1302.2978}. Git code repository: \url{https://bitbucket.org/caseywdunn/sicb2013}.
-
-\item Helm, RR, S Siebert, S Tulin, J Smith, CW Dunn (2013) Characterization of differential transcript abundance through time during \emph{Nematostella vectensis} development. BMC Genomics 14:266. \url{http://doi.org/10.1186/1471-2164-14-266}. Git code repository: \url{https://bitbucket.org/caseywdunn/helm_etal_2013}.
-
-\item Howison, M, N Sinnott-Armstrong, CW Dunn (2012) BioLite, a lightweight bioinformatics framework with automated tracking of diagnostics and provenance. 4th USENIX Workshop on the Theory and Practice of Provenance (TaPP12). \url{https://www.usenix.org/system/files/conference/tapp12/tapp12-final5.pdf} (peer-reviewed conference proceeding). 
-
-\item Smith, SA, NG Wilson, F Goetz, C Feehery, SCS Andrade, GW Rouse, G Giribet, CW Dunn (2011) Resolving the evolutionary relationships of molluscs with phylogenomic tools. Nature 480:364-367. \url{http://doi.org/10.1038/nature10526}. 
-
-\item Siebert, S,  MD Robinson, SC Tintori, F Goetz, RR Helm, SA Smith, N Shaner, SHD Haddock, CW Dunn (2011) Differential Gene Expression in the Siphonophore \emph{Nanomia bijuga} (Cnidaria) Assessed with Multiple Next-Generation Sequencing Workflows. PLoS One 6(7): e22953. \url{http://doi.org/10.1371/journal.pone.0022953}. 
-
-\item Edgecombe, GD, G Giribet, CW Dunn, A Hejnol, RM Kristensen, RC Neves, GW Rouse, K Worsaae, and MV S{\o}rensen (2011) Higher-level metazoan relationships: recent progress and remaining questions. Organisms, Diversity, and Evolution 11:151-172. \url{http://doi.org/10.1007/s13127-011-0044-4}. 
-
-\item Hejnol, A, M Obst, A Stamatakis, M Ott, G Rouse, G Edgecombe, P Martinez, J Bagu\~{n}\`{a}, X Bailly, U Jondelius, M Wiens, WEG M\"{u}ller, Elaine Seaver, WC Wheeler, MQ Martindale, G Giribet, and CW Dunn (2009) Assessing the root of bilaterian animals with scalable phylogenomic methods. Proc. R. Soc. B. 276:4261-4270. \url{http://doi.org/10.1098/rspb.2009.0896}. Git repository: \url{https://bitbucket.org/caseywdunn/hejnol_etal_2009}. 
-
-\item Cartwright, P, NM Evans, CW Dunn, AC Marques, MP Miglietta, P Schuchert, and AG Collins (2008) Phylogenetics of Hydroidolina (Hydrozoa: Cnidaria). Journal of the Marine Biological Association of the United Kingdom 88:1663-1672. \url{http://doi.org/10.1017/S0025315408002257}. 
-
-\item Dunn, CW, A Hejnol, DQ Matus, K Pang, WE Browne, SA Smith, E Seaver, GW Rouse, M Obst, GD Edgecombe, MV S{\o}rensen, SHD Haddock, A Schmidt-Rhaesa, A Okusu, RM Kristensen, WC Wheeler, MQ Martindale, and G Giribet (2008) Broad phylogenomic sampling improves resolution of the Animal Tree of Life. Nature 452:745-749. \url{http://doi.org/10.1038/nature06614}. (Cover Article). 
-
-\item Smith, SA and CW Dunn (2008) Phyutility: a phyloinformatics tool for trees, alignments, and molecular data. Bioinformatics. 24:715-716. \url{http://doi.org/10.1093/bioinformatics/btm619}. Code repository: \url{https://code.google.com/p/phyutility} . 
-
-\item Giribet, G, CW Dunn, GD Edgecombe, and GW Rouse (2007) A modern look at the Animal Tree of Life. Zootaxa 1668:61-79. 
-
-\item Oota, H, CW Dunn, WC Speed, AJ Pakstis, MA Palmatier, JR Kidd and KK Kidd (2007) Conservative evolution in duplicated genes of the primate Class I ADH cluster. Gene 392:64-76. \url{http://doi.org/10.1016/j.gene.2006.11.008}. 
-
-\item Dunn, CW and GP Wagner (2006) The evolution of colony-level development in the Siphonophora (Cnidaria:Hydrozoa). Development, Genes, and Evolution. 216:743-754. \url{http://doi.org/10.1007/s00427-006-0101-8} (Cover Article). 
-
-\item Matus, DQ, K Pang, H Marlow, CW Dunn, GH Thomsen, and MQ Martindale (2006) Deep evolutionary roots for bilaterality in the metazoa. Proceedings of the National Academy of Sciences USA. 103:11195-11200. \url{http://doi.org/10.1073/pnas.0601257103}. 
-
-\item Matus, DQ, RR Copley, CW Dunn, A Hejnol, H Eccleston, KM Halanych, MQ Martindale, and MJ Telford (2006) Broad Taxon and Gene Sampling Indicate that Chaetognaths Are Protostomes. Current Biology. 16:R575-R576. \url{http://doi.org/10.1016/j.cub.2006.07.017}. 
-
-\item Dunn, CW, PR Pugh, and SHD Haddock (2005) Molecular phylogenetics of the Siphonophora (Cnidaria), with implications for the evolution of functional specialization. Systematic Biology 54:916-935. \url{http://doi.org/10.1080/10635150500354837} (Cover Article). Git repository: \url{https://bitbucket.org/caseywdunn/siphonophores_2005}. 
-
-\item Dunn, CW (2005) The complex colony-level organization of the deep-sea siphonophore \emph{Bargmannia elongata} (Cnidaria, Hydrozoa) is directionally asymmetric and arises by the subdivision of pro-buds. Developmental Dynamics 234:835-845. \url{http://doi.org/10.1002/dvdy.20483} (Cover Article).
-
-\item Haddock, SHD, CW Dunn, PR Pugh and CE Schnitzler (2005) Bioluminescent and red-fluorescent lures in a deep-sea siphonophore. Science 309:263. \url{http://doi.org/10.1126/science.1110441}. 
-
-\item Dunn, CW, PR Pugh, and SHD Haddock (2005) \emph{Marrus claudanielis}, a new species of deep-sea physonect siphonophore (Siphonophora, Physonectae). Bulletin of Marine Science 76:699-714. 
-
-\item Haddock, SHD, CW Dunn, and PR Pugh (2005) A reexamination of siphonophore terminology and morphology, applied to the description of two new prayine species with remarkable bio-optical properties. Journal of the  Marine Biological Association of the  U.K. 85:695-707. \url{http://doi.org/10.1017/S0025315405011616}. 
-
-\item Lynch, VJ, JJ Roth, K Takahashi, CW Dunn, DF Nonaka, G Stopper and GP Wagner (2004) Adaptive evolution of HoxA-11 and HoxA-13 at the origin of the uterus in mammals. Proceedings of the Royal Society B: Biological Sciences 271:2201-2207. \url{http://doi.org/10.1098/rspb.2004.2848}. 
-
-
-\end{itemize}
-
-
+\medskip
 \subsection*{d. Non-refereed journal articles}
+\printbibliography[heading=none, check=nonrefereed]
 
-\begin{itemize}
-
-\item Lewis, ZR and CW Dunn. (2018) Genome evolution: We are not so special. eLife. \url{http://doi.org/10.7554/eLife.38726}.  Git code repository: \url{https://github.com/dunnlab/gene_inventory_2018}.
-
-\item Dunn, CW (2017) Ctenophore trees. Nature Ecology and Evolution. \url{http://doi.org/10.1038/s41559-017-0359-4}
-
-\item Hejnol, A, CW Dunn (2016) Animal Evolution: Are Phyla Real? Current Biology 26:R424-R426. \url{http://doi.org/10.1016/j.cub.2016.03.058}.
-
-\item Dunn, CW (2014) Keeping Mates Close and Competition Out in an Ocean Sponge, November 13, 2014. \url{http://www.nytimes.com/2014/11/13/science/keeping-mates-close-and-competition-out-in-an-ocean-sponge.html}
-
-\item Dunn, CW (2014) Fiery Bodies Under the Waves. New York Times, August 14, 2014. \url{http://www.nytimes.com/2014/08/14/science/a-colonizing-fire-of-giant-plankton.html}
-
-\item Dunn, CW (2014) A Marine Magician's Vanishing Act. New York Times, May 28, 2014. \url{http://www.nytimes.com/2014/05/28/science/a-marine-magicians-vanishing-act.html}
-
-\item Dunn, CW (2014) A Cloak of Near Invisibility in an Underwater World. New York Times, April 24, 2014. \url{http://www.nytimes.com/2014/04/24/science/a-cloak-of-near-invisibility-in-an-underwater-world.html}
-
-\item Dunn, CW (2014) Two Urchins, Similar but Not. New York Times, February 26, 2014. \url{http://www.nytimes.com/2014/02/26/science/two-urchins-similar-but-not.html}
-
-\item Dunn, CW (2014) Poisonous Prey Turned Into Hunter's Defense. New York Times, February 12, 2014. \url{http://www.nytimes.com/2014/02/13/science/poisonous-prey-turned-into-hunters-defense.html}
-
-\item Dunn, CW (2014) Moving, Without Feet to Do So. New York Times, January 23, 2014. \url{http://www.nytimes.com/2014/01/23/science/earth/moving-without-feet-to-do-so.html}
-
-\item Dunn, CW (2013) The Color of Royalty, Bestowed by Science and Snails. New York Times, October 9, 2013. \url{http://www.nytimes.com/2013/10/09/science/the-color-of-royalty-bestowed-by-science-and-snails.html}
-
-\item Dunn, CW (2013) As 'Normal' as Rabbits' Weights and Dragons' Wings. New York Times, September 23, 2013. \url{http://www.nytimes.com/2013/09/24/science/as-normal-as-rabbits-weights-and-dragons-wings.html}
-
-\item Dunn, CW (2013) Sex in Spoonworms. New York Times, September 16, 2013. \url{http://www.nytimes.com/2013/09/17/science/creatures-strange-and-complex-in-colorful-detail.html} (the text I wrote accompanies the video).
-
-\item Dunn, CW (2013) Evolution: Out of the ocean. Current Biology 23:R242-R243. \url{http://doi.org/10.1016/j.cub.2013.01.067}. 
-
-\item Dunn, CW (2009) Siphonophores. Current Biology 19:R233-R234. \url{http://doi.org/10.1016/j.cub.2009.02.009}. 
-
-\item Haddock, SHD and CW Dunn (2005) The complex world of siphonophores. JMBA Global Marine Environment 2005(2):24-25.  
-
-\end{itemize}
-
+% --- Manual Sections (Lectures/Patents) ---
 
 \subsection*{e. Selected lectures}
 

@@ -1,12 +1,52 @@
 \documentclass[letterpaper]{article}
 
 \usepackage[hidelinks]{hyperref}
-\usepackage{geometry}
 \usepackage{etoolbox}
 \usepackage{enumitem}
 
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext,newtxmath}
+
+% For citation formatting
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+% \usepackage{hyperref}
+
+% --- BibLaTeX Configuration ---
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    sorting=ydnt, % Sort by Year (Descending), Name, Title
+    maxbibnames=99, % List all authors
+    dashed=false, % Do not use dashes for recurring authors
+    doi=true,
+    url=true
+]{biblatex}
+
+% --- Custom Field Formatting ---
+% 1. Link formatting
+\DeclareFieldFormat{preprint}{\par\small\textit{Preprint: \url{#1}}}
+\DeclareFieldFormat{code_repo}{\par\small\textit{Code: \url{#1}}}
+
+% 2. Add custom fields to the end of the entry
+\AtEveryBibitem{
+  \clearlist{language} % Cleanup
+  \csappto{blx@bbx@note}{%
+    \printfield{preprint}%
+    \printfield{code_repo}%
+    \iffieldequalstr{cover_article}{true}{\par\textbf{(Cover Article)}}{}%
+  }
+}
+
+
+% --- Bold Your Name (Optional but recommended) ---
+\usepackage{xpatch}
+\xpatchbibmacro{name:family-given}
+  {\ifgiveninits}
+  {\ifdefstrequal{#1}{Dunn}{\mkbibbold{#1}}{#1}\ifgiveninits}
+  {}{}
+
+\addbibresource{publications.bib}
 
 % Set your name here
 \def\name{Dr. Casey William Dunn}
