@@ -50,7 +50,7 @@ The repositories are expected as sibling checkouts (`../casey_dunn_pubs`, `../ca
    python bib_to_html.py ../casey_dunn_cv/publications.bib _includes/publications.html
    ```
    Check the diff, then commit and push. Pushing publishes the site.
-9. **Refresh specimen_tracking** if the paper has sequence data. It keeps a cached copy of the bib in `data/raw/papers/lab_bib/`; delete that and rerun its harvest so it picks up the new entry.
+9. **Update specimen_tracking** if the paper has sequence data: `git pull` in the `casey_dunn_cv` and `casey_dunn_pubs` checkouts it reads from (siblings of `specimen_tracking`, including on McCleary), then rerun its reconciliation scripts. It reads these repositories directly through its `specimens.pubs` module and keeps no copies.
 
 ### Renaming a key
 
@@ -59,7 +59,7 @@ Avoid it, but if a key must change:
 - In `casey_dunn_pubs`, `git mv` `library/<old>.pdf`, `text/<old>.md` and `supplements/<old>/` to the new key, and rename the key in `sources.tsv`. `python scripts/pubs.py status` lists PDFs whose key is no longer in the bib.
 - Rename the key in `accessions.tsv`, or rerun `scripts/accessions.py --keys <new>`.
 - Rerun `scripts/pubs.py link-bib` to fix the `file` field.
-- Refresh specimen_tracking's cached bib.
+- Rerun the specimen_tracking scripts that use the paper.
 
 ## Variants
 
