@@ -2,9 +2,7 @@
 
 Curriculum Vitae for Casey Dunn, built with LaTeX and BibLaTeX.
 
-## Source of truth for publications
-
-**This repository is the source of truth for all information about Casey Dunn's publications.** Other repositories are consumers: they read from here and must not keep their own edited copies of publication data. To correct or add anything about a paper, change it here and regenerate the consumers.
+## Publication data
 
 What lives here:
 
