@@ -24,7 +24,7 @@ The PDFs are in a separate private repository because most are publisher version
 
 The repositories are expected as sibling checkouts (`../casey_dunn_pubs`, `../caseywdunn.github.io`). Commands for `casey_dunn_pubs` run in its conda environment (`conda activate casey_dunn_pubs`).
 
-1. **Add the bib entry** to `publications.bib` here, with a `FirstauthorYearTopic` key. Include the DOI. Add `note = {Not peer reviewed}` for non-refereed pieces, and `preprint` and `cover_article` where they apply.
+1. **Add the bib entry** to `publications.bib` here, with a `FirstauthorYearTopic` key. Include the DOI. Add `note = {Not peer reviewed}` for non-refereed pieces, and `preprint` and `cover_article` where they apply. For a preprint that is not yet published, see [Preprints](#preprints).
 2. **Add keywords** from [`KEYWORDS.md`](KEYWORDS.md), including the broader terms that narrower terms imply. Read the paper's abstract and methods, not just the title. The rules there settle the common judgment calls.
 3. **Build the CV** with `make` and check the new entry.
 4. **Add the PDF to casey_dunn_pubs.** In `../casey_dunn_pubs`:
@@ -49,6 +49,13 @@ The repositories are expected as sibling checkouts (`../casey_dunn_pubs`, `../ca
    ```
    Check the diff, then commit and push. Pushing publishes the site.
 9. **Update specimen_tracking** if the paper has sequence data: `git pull` in the `casey_dunn_cv` and `casey_dunn_pubs` checkouts it reads from (siblings of `specimen_tracking`, including on McCleary), then rerun its reconciliation scripts. It reads these repositories directly through its `specimens.pubs` module and keeps no copies.
+
+### Preprints
+
+A paper has one entry and one key for its whole life.
+
+- **While it is only a preprint**, the entry is `@online`, with `organization = {bioRxiv}` (or the other server) and the preprint's DOI in `doi`. The CV lists `@online` entries under Preprints, and the website marks them as not yet peer reviewed.
+- **When it is published**, change the same entry to `@article` (or `@incollection`), fill in the journal fields, move the preprint DOI to `preprint`, and put the journal DOI in `doi`. Keep the key, even if the publication year differs from the year in the key.
 
 ### Renaming a key
 
@@ -91,7 +98,7 @@ make Casey_Dunn_CV_short.pdf
 - `data_repo`: comma-separated DOI URLs of the paper's own deposits in data archives (Zenodo, Dryad, figshare).
 - `bioproject`: comma-separated NCBI BioProjects deposited by the paper. Written by `scripts/accessions.py` in `casey_dunn_pubs`.
 - `file`: `<key>.pdf`, the PDF in the private `casey_dunn_pubs` repository. Maintained by that repo's `scripts/pubs.py link-bib`.
-- `preprint`: DOI URL of the preprint.
+- `preprint`: DOI URL of the preprint of a published paper. Unpublished preprints are `@online` entries instead; see [Preprints](#preprints).
 - `cover_article`: `true` if the paper was featured on the journal cover.
 
 ## Sequence accessions

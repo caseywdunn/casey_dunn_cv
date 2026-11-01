@@ -20,6 +20,11 @@
   }{\skipentry} % Skip if not article
 }
 
+% Filter for Preprints not yet published (Section E)
+\defbibcheck{preprints}{
+  \ifentrytype{online}{}{\skipentry}
+}
+
 % Filter for Non-Refereed (Section D)
 \defbibcheck{nonrefereed}{
   \iffieldequalstr{note}{Not peer reviewed}{}{\skipentry}
@@ -47,9 +52,13 @@
 \subsection*{d. Non-refereed journal articles}
 \printbibliography[heading=none, check=nonrefereed]
 
+\medskip
+\subsection*{e. Preprints}
+\printbibliography[heading=none, check=preprints]
+
 % --- Manual Sections (Lectures/Patents) ---
 
-\subsection*{e. Selected lectures}
+\subsection*{f. Selected lectures}
 
 \begin{entry}{60pt}
 
@@ -93,7 +102,7 @@
 
 \end{entry}
 
-\subsection*{f. Patents and inventions}
+\subsection*{g. Patents and inventions}
 
 \begin{entry}{60pt}
 
