@@ -19,10 +19,12 @@ Rules for consistent judgment calls:
 - Finding genes in an existing transcriptome only to make probes (e.g. for in
   situ hybridization) is not `sequence-analysis`. If the paper deposits the new
   sequences, it is `new-sequence-data`.
-- `evo-devo` is for work on how development evolves: developmental processes
-  or genes compared across taxa, or interpreted in an explicitly evolutionary
-  framework (origins, homology). Describing the development of one species is
-  `development` alone.
+- `evo-devo` applies broadly, to work on how development and the forms it
+  builds evolve: development studied comparatively or in an evolutionary
+  framework, including the development of non-model animals; the evolution of
+  body plans, morphological novelties and homology; colony organization and
+  zooid specialization; and cell type evolution. It does not need
+  `development`. Pure taxonomy and phylogeny-only papers do not get it.
 - `new-sequence-data` means the paper deposited new sequences (in SRA,
   GenBank, etc.). Reanalyses of published data get `sequence-analysis`
   without `new-sequence-data`.
@@ -88,7 +90,7 @@ sampled incidentally within a broad comparison.
 | `coloniality` | colonial organisms, zooids |
 | `functional-specialization` | division of labor among zooids, cells, or genes |
 | `cell-types` | cell type identity and evolution |
-| `evo-devo` | evolution of development: comparative development, origins and homology of developmental processes and genes |
+| `evo-devo` | evolution of development and form: comparative development, body plans, novelties and homology, colony organization and zooid specialization, cell type evolution |
 | `gene-expression-evolution` | comparative analysis of gene expression across species |
 | `genome-evolution` | evolution of genome content or structure |
 | `public-health` | public health practice and policy |
