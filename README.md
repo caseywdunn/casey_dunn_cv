@@ -14,7 +14,7 @@ Bib keys follow `FirstauthorYearTopic` (e.g. `Manko2026Bargmannia`): first autho
 
 | Repository | Visibility | Role | Reads | Writes back here |
 |---|---|---|---|---|
-| [casey_dunn_pubs](https://github.com/caseywdunn/casey_dunn_pubs) | private | Archive of each paper's PDF (`library/<key>.pdf`), markdown text for LLMs and scripts (`text/<key>.md`), and supplementary files (`supplements/<key>/`). Its scripts harvest information from these files. | `publications.bib` | `file` and `bioproject` fields, `accessions.tsv` |
+| [casey_dunn_pubs](https://github.com/caseywdunn/casey_dunn_pubs) | private | Archive of each paper's PDF (`library/<key>.pdf`, latest version; earlier versions such as preprints in `versions/<key>/`), markdown text for LLMs and scripts (`text/<key>.md`), and supplementary files (`supplements/<key>/`). Its scripts harvest information from these files. | `publications.bib` | `file` and `bioproject` fields, `accessions.tsv` |
 | [caseywdunn.github.io](https://github.com/caseywdunn/caseywdunn.github.io) | public | Lab website (dunnlab.org). `bib_to_html.py` renders the publications page. | `publications.bib` | nothing |
 | [specimen_tracking](https://github.com/caseywdunn/specimen_tracking) | private | Reconciles lab specimens across sequence data, NCBI, MBARI and the Peabody. | `publications.bib`, `accessions.tsv` | nothing |
 
@@ -33,7 +33,7 @@ The repositories are expected as sibling checkouts (`../casey_dunn_pubs`, `../ca
    mkdir -p supplements/<key> && cp ~/Downloads/<supplementary files> supplements/<key>/
    python scripts/pubs.py refresh --no-spotlight            # converts to text/<key>.md, sets file = {<key>.pdf} here, updates STATUS.md
    ```
-   Downloads can also be dropped in `casey_dunn_pubs/tmp/` and matched to their entries by content. Use the final published version, not a proof or preprint.
+   Downloads can also be dropped in `casey_dunn_pubs/tmp/` and matched to their entries by content. Use the final published version, not a proof, or for an unpublished preprint the PDF from the preprint server. When a newer version arrives, `add` it the same way; the previous one is kept under `versions/<key>/` (see that repository's README).
 5. **Harvest the remaining fields from the paper's text.**
    - `code_repo`: the git repositories holding this paper's own code or data, main analysis repository first. Look in the data availability statement of `text/<key>.md`, e.g. `grep -oE "(github|bitbucket)\.(com|org)/[^ )]+" text/<key>.md`. Leave out third-party tools the paper only used.
    - `data_repo`: the paper's own Zenodo, Dryad or figshare DOIs, as `https://doi.org/...` URLs.
@@ -55,7 +55,7 @@ The repositories are expected as sibling checkouts (`../casey_dunn_pubs`, `../ca
 A paper has one entry and one key for its whole life.
 
 - **While it is only a preprint**, the entry is `@online`, with `organization = {bioRxiv}` (or the other server) and the preprint's DOI in `doi`. The CV lists `@online` entries under Preprints, and the website marks them as not yet peer reviewed.
-- **When it is published**, change the same entry to `@article` (or `@incollection`), fill in the journal fields, move the preprint DOI to `preprint`, and put the journal DOI in `doi`. Keep the key, even if the publication year differs from the year in the key.
+- **When it is published**, change the same entry to `@article` (or `@incollection`), fill in the journal fields, move the preprint DOI to `preprint`, and put the journal DOI in `doi`. Keep the key, even if the publication year differs from the year in the key. Then `add` the published PDF in `casey_dunn_pubs`, which keeps the preprint PDF under `versions/<key>/`.
 
 ### Renaming a key
 
