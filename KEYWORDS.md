@@ -12,13 +12,17 @@ not just its title.
 
 Rules for consistent judgment calls:
 
-- Reviews, commentaries, and popular pieces get data and method terms for
+- Reviews, commentaries, and general-audience pieces get data and method terms for
   the methods they are mainly about, which also brings in implied terms such
   as `sequence-analysis`. To find only primary analyses, exclude `review`,
-  `commentary`, and `popular`.
+  `commentary`, and `general-audience`.
 - Finding genes in an existing transcriptome only to make probes (e.g. for in
   situ hybridization) is not `sequence-analysis`. If the paper deposits the new
   sequences, it is `new-sequence-data`.
+- `evo-devo` is for work on how development evolves: developmental processes
+  or genes compared across taxa, or interpreted in an explicitly evolutionary
+  framework (origins, homology). Describing the development of one species is
+  `development` alone.
 - `new-sequence-data` means the paper deposited new sequences (in SRA,
   GenBank, etc.). Reanalyses of published data get `sequence-analysis`
   without `new-sequence-data`.
@@ -84,6 +88,7 @@ sampled incidentally within a broad comparison.
 | `coloniality` | colonial organisms, zooids |
 | `functional-specialization` | division of labor among zooids, cells, or genes |
 | `cell-types` | cell type identity and evolution |
+| `evo-devo` | evolution of development: comparative development, origins and homology of developmental processes and genes |
 | `gene-expression-evolution` | comparative analysis of gene expression across species |
 | `genome-evolution` | evolution of genome content or structure |
 | `public-health` | public health practice and policy |
@@ -91,11 +96,14 @@ sampled incidentally within a broad comparison.
 
 ## Article type
 
-Only where the entry type and `note` field do not already say it.
+Only where the entry type and `note` field do not already say it, except
+`preprint`, which repeats the `@online` entry type so that keyword filters
+can find preprints.
 
 | term | use for |
 |---|---|
 | `review` | reviews and syntheses |
 | `commentary` | news & views, dispatches, primers, opinion pieces |
-| `popular` | writing for a general audience |
+| `general-audience` | writing for a general audience (newspapers, magazines, popular books) |
+| `preprint` | manuscripts available only as preprints (`@online` entries). Remove it when the entry becomes the published paper. |
 | `protocol` | study protocols |

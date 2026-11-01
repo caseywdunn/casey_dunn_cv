@@ -54,8 +54,8 @@ The repositories are expected as sibling checkouts (`../casey_dunn_pubs`, `../ca
 
 A paper has one entry and one key for its whole life.
 
-- **While it is only a preprint**, the entry is `@online`, with `organization = {bioRxiv}` (or the other server) and the preprint's DOI in `doi`. The CV lists `@online` entries under Preprints, and the website marks them as not yet peer reviewed.
-- **When it is published**, change the same entry to `@article` (or `@incollection`), fill in the journal fields, move the preprint DOI to `preprint`, and put the journal DOI in `doi`. Keep the key, even if the publication year differs from the year in the key. Then `add` the published PDF in `casey_dunn_pubs`, which keeps the preprint PDF under `versions/<key>/`.
+- **While it is only a preprint**, the entry is `@online`, with `organization = {bioRxiv}` (or the other server) and the preprint's DOI in `doi`, and the `preprint` keyword. The CV lists `@online` entries under Preprints, and the website marks them as not yet peer reviewed.
+- **When it is published**, change the same entry to `@article` (or `@incollection`), fill in the journal fields, move the preprint DOI to `preprint`, put the journal DOI in `doi`, and remove the `preprint` keyword. Keep the key, even if the publication year differs from the year in the key. Then `add` the published PDF in `casey_dunn_pubs`, which keeps the preprint PDF under `versions/<key>/`.
 
 ### Renaming a key
 
